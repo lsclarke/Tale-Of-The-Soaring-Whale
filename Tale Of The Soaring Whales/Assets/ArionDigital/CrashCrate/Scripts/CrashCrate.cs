@@ -15,11 +15,14 @@
 
         private void OnTriggerEnter(Collider other)
         {
-            wholeCrate.enabled = false;
-            boxCollider.enabled = false;
-            fracturedCrate.SetActive(true);
-            crashAudioClip.Play();
-            StartCoroutine(DestroyCrate());
+            if (other.gameObject.tag == "PlayerAttackBox")
+            {
+                wholeCrate.enabled = false;
+                boxCollider.enabled = false;
+                fracturedCrate.SetActive(true);
+                crashAudioClip.Play();
+                StartCoroutine(DestroyCrate());
+            }
         }
 
         IEnumerator DestroyCrate()

@@ -10,6 +10,7 @@ TagManager:
   - Coin
   - Gems
   - enemy
+  - PlayerAttackBox
   layers:
   - Default
   - TransparentFX

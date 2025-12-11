@@ -62,6 +62,10 @@ public class DialogueSystem : MonoBehaviour
     public AudioSource source;
     public AudioClip[] clips;
 
+    //TimeLines
+
+    public TimelineIntroActions timelineIntroActions;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -167,6 +171,7 @@ public class DialogueSystem : MonoBehaviour
                 animator.SetTrigger("Pop Out");
                 break;
         }
+        timelineIntroActions.EnablePlayerFunctions();
         StopAllCoroutines();
     }
 
@@ -326,6 +331,8 @@ public class DialogueSystemEditor : Editor
     SerializedProperty source;
     SerializedProperty clips;
 
+    SerializedProperty timelineIntroActions;
+
     bool characterNameGroup = false;
 
     SerializedProperty toolInfoA;
@@ -367,6 +374,8 @@ public class DialogueSystemEditor : Editor
 
         source = serializedObject.FindProperty("source");
         clips = serializedObject.FindProperty("clips");
+
+        timelineIntroActions = serializedObject.FindProperty("timelineIntroActions");
 
     }
 
@@ -421,6 +430,8 @@ public class DialogueSystemEditor : Editor
                 EditorGUILayout.Space(5);
                 EditorGUILayout.PropertyField(source);
                 EditorGUILayout.PropertyField(clips);
+                EditorGUILayout.Space(15);
+                EditorGUILayout.PropertyField(timelineIntroActions);
                 break;
 
             case DialogueSystem.DialogueCanvasStyle.B:
