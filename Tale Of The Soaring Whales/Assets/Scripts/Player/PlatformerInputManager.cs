@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class PlatformerInputManager : MonoBehaviour
 {
     [SerializeField]
-    private PlayerInput PlayerInput;
+    private PlayerInput playerInput;
     private PlatformerPlayerMovement _player_Movement;
     private PlatformerCollisionDetection _player_CollisionDetection;
     private PlatformerBounceStomp _bounce_Stomp;
@@ -14,7 +14,7 @@ public class PlatformerInputManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerInput = GetComponent<PlayerInput>();
+        playerInput = GetComponent<PlayerInput>();
 
         _player_Movement = GetComponent<PlatformerPlayerMovement>();
 
@@ -79,4 +79,6 @@ public class PlatformerInputManager : MonoBehaviour
         if (air_Leap.performed)
             _player_PlayerLeap.AirLeap();
     }
+
+
 }

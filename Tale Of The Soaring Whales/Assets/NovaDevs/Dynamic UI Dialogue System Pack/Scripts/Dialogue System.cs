@@ -65,7 +65,7 @@ public class DialogueSystem : MonoBehaviour
     //TimeLines
 
     public TimelineIntroActions timelineIntroActions;
-
+    public bool enablePlayer;
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -156,6 +156,7 @@ public class DialogueSystem : MonoBehaviour
         dialogueText.text = "";
 
         animator.SetTrigger("Exit");
+        enablePlayer = true;
         switch (exitAnimation)
         {
             case ExitAnimationStyle.FadeOut:

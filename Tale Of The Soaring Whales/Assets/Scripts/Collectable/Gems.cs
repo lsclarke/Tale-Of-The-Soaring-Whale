@@ -5,6 +5,8 @@ public class Gems : MonoBehaviour
     public PlayerInventory playerInventory;
     private float rotationSpeed = 2f;
 
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
